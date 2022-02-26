@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>Mongoose Movies</title>
+</head>
+<body>
+  <h1>Movie List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release Year</th>
+        <th>Rating</th>
+        <th>Cast</th>
+        <th>Now Showing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <a href="/movies/new">Add new Movies</a>
+      <%# Oh hey, this is an ejs comment! It starts with a # %>
+      <%# Write the line of EJS to iterate over movies using forEach %>
+      <% movies.forEach(function(movies){%> 
+        <tr>
+          <td><%= movies.title %></td>
+          <td><%= movies.releaseYear %></td>
+          <td><%= movies.mpaaRating %></td>
+          <td><%= movies.cast.join(', ') %></td>
+          <%# finish the ternary expression to display 'Yes' or 'Nope' %> 
+          <td><%= movies.nowShowing ?'yes': 'nope'%></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
